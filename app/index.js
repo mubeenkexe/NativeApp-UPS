@@ -14,7 +14,7 @@ import { StatusBar } from "expo-status-bar";
 import { Controller } from "react-hook-form";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
-import useLogin from "../hooks/useLogin";
+import useLogin from "../src/hooks/useLogin";
 
 export default function SignupScreen() {
   const [navigation, control, handleSubmit, onSubmit] =
