@@ -16,7 +16,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
 import useLogin from "../hooks/useLogin";
 
-export default function SignupScreen() {
+export default function SignUpScreen() {
   const [navigation, control, handleSubmit, onSubmit] =
     useLogin();
 
