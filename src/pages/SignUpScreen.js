@@ -17,8 +17,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import useLogin from "../hooks/useLogin";
 
 export default function SignUpScreen() {
-  const [navigation, control, handleSubmit, onSubmit] =
-    useLogin();
+  const [navigation, control, handleSubmit, onSubmit] = useLogin();
 
   const handleExit = () => {
     ToastAndroid.show("Press back again to exit", ToastAndroid.SHORT);
