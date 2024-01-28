@@ -1,6 +1,6 @@
 {
   "expo": {
-    "entryPoint": "./src/app/index.js",
+    "entryPoint": "./src/app/App.js",
     "name": "ups-monitor",
     "slug": "ups-monitor",
     "version": "1.0.0",
