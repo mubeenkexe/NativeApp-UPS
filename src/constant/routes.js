@@ -5,19 +5,19 @@ import SignUpScreen from "../pages/SignUpScreen";
 export const routes = {
     SignIn: {
         screen: SignInScreen,
-        navigationOtion: {
-            title: "Sign In",
+        navigationOption: {
+            title: "SignIn",
         },
     },
     SignUp: {
         screen: SignUpScreen,
-        navigationOtion: {
-            title: "Sign Up",
+        navigationOption: {
+            title: "SignUp",
         },
     },
     Home: {
         screen: HomeScreen,
-        navigationOtion: {
+        navigationOption: {
             title: "Home",
         },
     },
