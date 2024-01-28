@@ -7,13 +7,13 @@ const AppNavigator = () => {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Sign In">
-                {Object.entries(routes).map(([name, { screen, navigationOtion }]) => (
+            <Stack.Navigator initialRouteName="SignIn">
+                {Object.entries(routes).map(([name, { screen, navigationOption }]) => (
                     <Stack.Screen
                         key={name}
                         name={name}
                         component={screen}
-                        options={navigationOtion}
+                        options={navigationOption}
                     />
                 ))}
             </Stack.Navigator>
