@@ -1,13 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "expo-router";
+import { useNavigationContainerRef, useRouter } from "expo-router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { SignInFormSchema } from "../utils/formValidations";
 
 const useLogin = () => {
-  const navigation = useRouter();
-
-  console.log(navigation);
+  const navigation = useNavigationContainerRef();
 
   const { control, handleSubmit, formState } = useForm({
     defaultValues: {
