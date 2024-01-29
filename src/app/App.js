@@ -2,7 +2,7 @@ import AppNavigator from "./appNavigator";
 import { registerRootComponent } from "expo";
 
 const App = () => {
-    return <AppNavigator />;
+  return <AppNavigator />;
 };
 
 export default registerRootComponent(App);
