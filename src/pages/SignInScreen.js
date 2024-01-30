@@ -31,7 +31,7 @@ export default function SignInScreen() {
                     keyboardShouldPersistTaps="handled"
                 >
                     <View className="bg-black h-full w-full px-5 space-y-5">
-                        <StatusBar style="light" backgroundColor="black" />
+                        <StatusBar style="light" backgroundColor="black" translucent={false}/>
 
                         {/* GoBack Icon */}
 
