@@ -14,12 +14,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import useLogin from "../hooks/useLogin";
 import { StatusBar } from "expo-status-bar";
 
-export default function SignInScreen() {
-    const [navigation, control, handleSubmit, isSubmitting] = useLogin();
-
-    const onSubmit = (data) => {
-        console.log(data);
-    };
+export default function SignInScreen({ navigation }) {
+    const [ control, handleSubmit, onSubmit] = useLogin();
 
     return (
             <KeyboardAvoidingView
@@ -123,7 +119,7 @@ export default function SignInScreen() {
                                     )}
                                 />
                                 <TouchableOpacity
-                                    onPress={() => navigationRef.navigate("forgotpassword")}
+                                    onPress={() => navigation.navigate("forgotpassword")}
                                 >
                                     <Text className="text-gray-600 font-bold">
                                         Forgot Password?
@@ -134,7 +130,7 @@ export default function SignInScreen() {
                             <View className="mt-5">
                                 <TouchableOpacity
                                     activeOpacity={0.5}
-                                    onPress={handleSubmit(onSubmit)}
+                                    onPress={onSubmit}
                                 >
                                     <LinearGradient
                                         colors={["#FFA500", "#FFD700"]}
