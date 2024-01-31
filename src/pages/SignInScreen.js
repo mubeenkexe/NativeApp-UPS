@@ -8,14 +8,23 @@ import {
     KeyboardAvoidingView,
     Platform,
 } from "react-native";
-import { Controller } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
-import useLogin from "../hooks/useLogin";
 import { StatusBar } from "expo-status-bar";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SignInFormSchema } from "../utils/formValidations";
 
 export default function SignInScreen({ navigation }) {
-    const [ control, handleSubmit, onSubmit] = useLogin();
+
+    const { control, handleSubmit, formState } = useForm({
+        defaultValues: {
+          username: "",
+          email: "",
+          password: "",
+        },
+        resolver: zodResolver(SignInFormSchema),
+      });
 
     return (
             <KeyboardAvoidingView
