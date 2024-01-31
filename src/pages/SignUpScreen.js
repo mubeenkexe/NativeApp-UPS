@@ -11,13 +11,23 @@ import {
   BackHandler,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { Controller } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
 import useLogin from "../hooks/useLogin";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SignInFormSchema } from "../utils/formValidations";
 
-export default function SignUpScreen() {
-  const [navigation, control, handleSubmit, onSubmit] = useLogin();
+export default function SignUpScreen({ navigation }) {
+  
+  const { control, handleSubmit, formState } = useForm({
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+    },
+    resolver: zodResolver(SignInFormSchema),
+  });
 
   const handleExit = () => {
     ToastAndroid.show("Press back again to exit", ToastAndroid.SHORT);
@@ -38,7 +48,11 @@ export default function SignUpScreen() {
         keyboardShouldPersistTaps="handled"
       >
         <View className="bg-black h-full w-full px-5 space-y-5">
-          <StatusBar style="light" backgroundColor="black" />
+          <StatusBar
+            style="light"
+            backgroundColor="black"
+            translucent={false}
+          />
 
           {/* GoBack Icon */}
 
@@ -119,7 +133,7 @@ export default function SignUpScreen() {
             <View className="mt-5">
               <TouchableOpacity
                 activeOpacity={0.5}
-                onPress={handleSubmit(onSubmit)}
+                onPress={() => handleSubmit(onSubmit)}
               >
                 <LinearGradient
                   colors={["#FFA500", "#FFD700"]}
@@ -132,7 +146,7 @@ export default function SignUpScreen() {
               </TouchableOpacity>
               <View className="flex-row justify-center mt-5">
                 <Text className="text-gray-600">Already have an account? </Text>
-                <TouchableOpacity onPress={() => navigation.push("/login")}>
+                <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
                   <Text className="text-sky-600 font-bold">Login</Text>
                 </TouchableOpacity>
               </View>
