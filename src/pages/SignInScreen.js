@@ -130,7 +130,7 @@ export default function SignInScreen({ navigation }) {
                             <View className="mt-5">
                                 <TouchableOpacity
                                     activeOpacity={0.5}
-                                    onPress={onSubmit}
+                                    onPress={() => handleSubmit(onSubmit)}
                                 >
                                     <LinearGradient
                                         colors={["#FFA500", "#FFD700"]}
