@@ -14,9 +14,9 @@ import { StatusBar } from "expo-status-bar";
 import { Controller, useForm } from "react-hook-form";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
-import useLogin from "../hooks/useLogin";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignInFormSchema } from "../utils/formValidations";
+import { router } from "expo-router";
 
 export default function SignUpScreen({ navigation }) {
   
@@ -146,7 +146,7 @@ export default function SignUpScreen({ navigation }) {
               </TouchableOpacity>
               <View className="flex-row justify-center mt-5">
                 <Text className="text-gray-600">Already have an account? </Text>
-                <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+                <TouchableOpacity onPress={() => router.replace("SignIn")}>
                   <Text className="text-sky-600 font-bold">Login</Text>
                 </TouchableOpacity>
               </View>
