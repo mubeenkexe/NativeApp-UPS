@@ -38,17 +38,8 @@ export default function SignInScreen({ navigation }) {
                     <View className="bg-black h-full w-full px-5 space-y-5">
                         <StatusBar style="light" backgroundColor="black" translucent={false}/>
 
-                        {/* GoBack Icon */}
-
-                        <TouchableOpacity
-                            className="border-gray-600 border w-14 h-10 rounded-full items-center justify-center mb-5"
-                            onPress={() => navigation.push("/")}
-                        >
-                            <Icon name="arrow-left" color="white" size={20} />
-                        </TouchableOpacity>
-
                         {/* title */}
-                        <View className="mb-5">
+                        <View className="mb-5 pt-5">
                             <Text className="text-white font-bold text-5xl">Welcome</Text>
                             <Text className="text-white font-bold text-5xl">Back.</Text>
                         </View>
@@ -128,7 +119,7 @@ export default function SignInScreen({ navigation }) {
                                     )}
                                 />
                                 <TouchableOpacity
-                                    onPress={() => navigation.navigate("forgotpassword")}
+                                    onPress={() => navigation.navigate("ForgotPass")}
                                 >
                                     <Text className="text-gray-600 font-bold">
                                         Forgot Password?
