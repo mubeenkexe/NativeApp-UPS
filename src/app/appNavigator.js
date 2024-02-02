@@ -2,13 +2,19 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { routes } from "../constant/routes";
 
-
 const AppNavigator = () => {
     const Stack = createStackNavigator();
 
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="SignIn" screenOptions={{headerShown: false}}>
+            <Stack.Navigator
+                initialRouteName="SignIn"
+                screenOptions={{
+                    animationEnabled: false,
+                    gestureEnabled: false,
+                    headerShown: false,
+                }}
+            >
                 {Object.entries(routes).map(([name, { screen, navigationOption }]) => (
                     <Stack.Screen
                         key={name}
@@ -21,6 +27,5 @@ const AppNavigator = () => {
         </NavigationContainer>
     );
 };
-
 
 export default AppNavigator;
