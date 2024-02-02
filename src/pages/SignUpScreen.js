@@ -146,7 +146,7 @@ export default function SignUpScreen({ navigation }) {
               </TouchableOpacity>
               <View className="flex-row justify-center mt-5">
                 <Text className="text-gray-600">Already have an account? </Text>
-                <TouchableOpacity onPress={() => router.replace("SignIn")}>
+                <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
                   <Text className="text-sky-600 font-bold">Login</Text>
                 </TouchableOpacity>
               </View>
