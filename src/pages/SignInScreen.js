@@ -60,49 +60,21 @@ export default function SignInScreen({ navigation }) {
                     {/* Google and Facebook */}
 
                     <View className="mt-5">
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            className="relative"
-                        >
-                            <LinearGradient
-                                colors={["#FF5252", "#FFAB91"]}
-                                className="py-4 rounded-full flex-row items-center"
-                            >
-                                <View className="left-10">
-                                    <Icon
-                                        name="google"
-                                        color="white"
-                                        size={20}
-                                    />
-                                </View>
-                                <Text className="text-white font-bold text-center w-full absolute text-base">
-                                    Continue with Google
-                                </Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
+                        <CustomButton
+                            title={"Continue with Google"}
+                            BtnColors={["#FF5252", "#FFAB91"]}
+                            handleClick={() => navigation.navigate("AddUps")}
+                            iconName={"google"}
+                        />
                     </View>
 
                     <View className="mt-5">
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            className="relative"
-                        >
-                            <LinearGradient
-                                colors={["#1877F2", "#6B96D7"]}
-                                className="py-4 rounded-full flex-row items-center"
-                            >
-                                <View className="left-10">
-                                    <Icon
-                                        name="facebook"
-                                        color="white"
-                                        size={20}
-                                    />
-                                </View>
-                                <Text className="text-white font-bold text-center w-full absolute text-base">
-                                    Continue with Facebook
-                                </Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
+                        <CustomButton
+                            title={"Continue with Facebook"}
+                            BtnColors={["#1877F2", "#6B96D7"]}
+                            handleClick={() => navigation.navigate("AddUps")}
+                            iconName={"facebook"}
+                        />
                     </View>
 
                     {/* Login form */}
@@ -168,7 +140,7 @@ export default function SignInScreen({ navigation }) {
                             {/* Custom sign up button */}
                             <CustomButton
                                 title={"Login"}
-                                BtnColors={["#c77dff","#7b2cbf"]}
+                                BtnColors={["#c77dff", "#7b2cbf"]}
                                 handleClick={() =>
                                     navigation.navigate("AddUps")
                                 }
