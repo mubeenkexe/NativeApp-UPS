@@ -7,9 +7,9 @@ import {
     KeyboardAvoidingView,
     Platform,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
 import { StatusBar } from "expo-status-bar";
 import { useForm } from "react-hook-form";
+import GoBackButton from "../components/GoBackButton/GoBackButton";
 
 export default function ForgotPassScreen({ navigation }) {
     const { control } = useForm({
@@ -35,12 +35,7 @@ export default function ForgotPassScreen({ navigation }) {
                     />
 
                     {/* GoBack Icon */}
-                    <TouchableOpacity
-                        className="border-gray-600 border w-14 h-10 rounded-full items-center justify-center"
-                        onPress={() => navigation.navigate("SignIn")}
-                    >
-                        <Icon name="arrow-left" color="white" size={20} />
-                    </TouchableOpacity>
+                    <GoBackButton handleClick={() => navigation.goBack()} />
 
                     {/* title */}
                     {/* <View className="mb-5">

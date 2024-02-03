@@ -2,6 +2,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import GoBackButton from "../components/GoBackButton/GoBackButton";
 
 export default function AddUpsScreen({ navigation }) {
     const [serialNumber, setSerialNumber] = useState("");
@@ -16,12 +17,7 @@ export default function AddUpsScreen({ navigation }) {
     return (
         <View className="bg-black h-full w-full px-5 space-y-5">
             {/* GoBack Icon */}
-            <TouchableOpacity
-                className="border-gray-600 border w-14 h-10 rounded-full items-center justify-center mt-5"
-                onPress={() => navigation.navigate("SignIn")}
-            >
-                <Icon name="arrow-left" color="white" size={20} />
-            </TouchableOpacity>
+            <GoBackButton handleClick={() => navigation.goBack()} />
 
             {/* title */}
             <View className="mb-5 pt-5">
