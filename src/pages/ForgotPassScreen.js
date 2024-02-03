@@ -6,12 +6,10 @@ import {
     ScrollView,
     KeyboardAvoidingView,
     Platform,
-    TextInput,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { StatusBar } from "expo-status-bar";
-import { Controller, useForm } from "react-hook-form";
-import LinearGradient from "expo-linear-gradient";
+import { useForm } from "react-hook-form";
 
 export default function ForgotPassScreen({ navigation }) {
     const { control } = useForm({
