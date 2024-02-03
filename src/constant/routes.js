@@ -1,3 +1,4 @@
+import AddUpsScreen from "../pages/AddUpsScreen";
 import ForgotPassScreen from "../pages/ForgotPassScreen";
 import HomeScreen from "../pages/HomeScreen";
 import SignInScreen from "../pages/SignInScreen";
@@ -26,6 +27,12 @@ export const routes = {
         screen: ForgotPassScreen,
         navigationOption: {
             title: "ForgotPass",
+        },
+    },
+    AddUps: {
+        screen: AddUpsScreen,
+        navigationOption: {
+            title: "AddUps",
         },
     },
 };
