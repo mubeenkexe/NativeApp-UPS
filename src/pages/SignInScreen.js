@@ -8,35 +8,31 @@ import {
     KeyboardAvoidingView,
     Platform,
 } from "react-native";
-import { Controller, useForm } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import { StatusBar } from "expo-status-bar";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { SignInFormSchema } from "../utils/formValidations";
 import CustomButton from "../components/CustomButton/CustomButton";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import useSignIn from "../hooks/useSignIn";
 
 /**
  * SignUpScreen component for user sign up
  * @param {object} navigation - navigation object for routing
  */
 export default function SignInScreen({ navigation }) {
+
     // Use react-hook-form for form management
-    const { control, handleSubmit, formState } = useForm({
-        defaultValues: {
-            username: "",
-            email: "",
-            password: "",
-        },
-        resolver: zodResolver(SignInFormSchema),
-    });
+    const 
+    [control,
+     showPassword,
+     togglePasswordVisibility,
+     handleSubmit,
+     errors,
+     isSubmitting,
+     submittedData,
+     onSubmit] = useSignIn();
+    
 
-    const [password, setPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-
+    
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -104,6 +100,8 @@ export default function SignInScreen({ navigation }) {
                                     />
                                 )}
                             />
+                            {errors.email && 
+                            <Text className="text-red-400 font-light text-[12px] mt-2">{errors?.email?.message}</Text>}
                         </View>
 
                         <View className="mb-5">
@@ -142,6 +140,8 @@ export default function SignInScreen({ navigation }) {
                                     </View>
                                 )}
                             />
+                             {errors.password && 
+                                        <Text className="text-red-400 font-light text-[12px] mt-2">{errors?.password?.message}</Text>}
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate("ForgotPass")
@@ -158,9 +158,7 @@ export default function SignInScreen({ navigation }) {
                             <CustomButton
                                 title={"Login"}
                                 BtnColors={["#c77dff", "#7b2cbf"]}
-                                handleClick={() =>
-                                    navigation.navigate("AddUps")
-                                }
+                                handleClick={handleSubmit(onSubmit)}
                             />
 
                             <View className="flex-row justify-center mt-5">

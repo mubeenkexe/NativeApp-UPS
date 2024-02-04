@@ -1,0 +1,1 @@
+export const BaseUrl = 'https://ups-next-server-i187.vercel.app'
