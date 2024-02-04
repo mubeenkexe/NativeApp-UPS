@@ -40,6 +40,6 @@ export const routes = {
         screen: EnterOtp,
         navigationOption: {
             title: "EnterOtp",
-        },
+        }
     }
 };
