@@ -2,6 +2,7 @@ import AddUpsScreen from "../pages/AddUpsScreen";
 import EnterOtp from "../pages/EnterOtpScreen";
 import ForgotPassScreen from "../pages/ForgotPassScreen";
 import HomeScreen from "../pages/HomeScreen";
+import ResetPassScreen from "../pages/ResetPassScreen";
 import SignInScreen from "../pages/SignInScreen";
 import SignUpScreen from "../pages/SignUpScreen";
 
@@ -40,6 +41,12 @@ export const routes = {
         screen: EnterOtp,
         navigationOption: {
             title: "EnterOtp",
+        },
+    },
+    ResetPass: {
+        screen: ResetPassScreen,
+        navigationOption: {
+            title: "ResetPass",
         }
     }
 };
