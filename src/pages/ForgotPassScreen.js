@@ -6,10 +6,12 @@ import {
     ScrollView,
     KeyboardAvoidingView,
     Platform,
+    TextInput,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useForm } from "react-hook-form";
 import GoBackButton from "../components/GoBackButton/GoBackButton";
+import CustomButton from "../components/CustomButton/CustomButton";
 
 export default function ForgotPassScreen({ navigation }) {
     const { control } = useForm({
@@ -37,17 +39,36 @@ export default function ForgotPassScreen({ navigation }) {
                     {/* GoBack Icon */}
                     <GoBackButton handleClick={() => navigation.goBack()} />
 
-                    {/* title */}
-                    {/* <View className="mb-5">
-                        <Text className="text-white font-bold text-5xl">Forgot</Text>
-                        <Text className="text-white font-bold text-5xl">Password?</Text>
-                    </View> */}
-
-                    {/* coming soon */}
-                    <View className="flex-1 items-center justify-center">
-                        <Text className="text-white font-bold text-center">
-                            Coming Soon
+                    {/* Title */}
+                    <View className="mb-5">
+                        <Text className="text-white font-bold text-5xl">
+                            Forgot
                         </Text>
+                        <Text className="text-white font-bold text-5xl">
+                            Password?
+                        </Text>
+                    </View>
+
+                    {/* Description */}
+                    <Text className="text-gray-600 font-bold mb-5">
+                        To recieve OTP on your email, please enter your email
+                        below.
+                    </Text>
+
+                    <View>
+                        <Text className="text-gray-600 font-bold">Email</Text>
+                        <TextInput
+                            placeholderTextColor={"grey"}
+                            className="text-white border-b border-gray-600 p-3 mb-5"
+                            autoCapitalize="none"
+                            keyboardType="email-address"
+                        />
+                        <CustomButton
+                            title={"Send me OTP"}
+                            BtnColors={["#c77dff", "#7b2cbf"]}
+                            iconName={"envelope"}
+                            handleClick={() => navigation.navigate("EnterOtp")}
+                        />
                     </View>
                 </View>
             </ScrollView>
