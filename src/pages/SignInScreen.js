@@ -40,12 +40,9 @@ export default function SignInScreen({ navigation }) {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={{ flex: 1 }}
+            style={{ flex: 1, backgroundColor: "#000", paddingBottom: 50 }}
         >
-            <ScrollView
-                contentContainerStyle={{ flexGrow: 1 }}
-                keyboardShouldPersistTaps="handled"
-            >
+            <ScrollView keyboardShouldPersistTaps="handled">
                 <View className="bg-black h-full w-full px-5 space-y-5">
                     <StatusBar
                         style="light"
@@ -136,7 +133,7 @@ export default function SignInScreen({ navigation }) {
                                         >
                                             <Icon
                                                 name="eye"
-                                                color={"grey"}
+                                                color={"#4a5568"}
                                                 size={20}
                                             >
                                                 {showPassword ? false : true}
@@ -150,7 +147,7 @@ export default function SignInScreen({ navigation }) {
                                     navigation.navigate("ForgotPass")
                                 }
                             >
-                                <Text className="text-gray-600 font-bold">
+                                <Text className="text-sky-600 font-bold">
                                     Forgot Password?
                                 </Text>
                             </TouchableOpacity>

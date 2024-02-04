@@ -15,7 +15,7 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignInFormSchema } from "../utils/formValidations";
 import CustomButton from "../components/CustomButton/CustomButton";
-import Icon  from "react-native-vector-icons/FontAwesome5";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 /**
  * SignUpScreen component for user sign up
@@ -35,7 +35,7 @@ export default function SignUpScreen({ navigation }) {
     const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
-    }
+    };
 
     // Handle back button to exit app
     const handleExit = () => {
@@ -50,12 +50,9 @@ export default function SignUpScreen({ navigation }) {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={{ flex: 1 }}
+            style={{ flex: 1, backgroundColor: "#000", paddingBottom: 50 }}
         >
-            <ScrollView
-                contentContainerStyle={{ flexGrow: 1 }}
-                keyboardShouldPersistTaps="handled"
-            >
+            <ScrollView keyboardShouldPersistTaps="handled">
                 <View className="bg-black h-full w-full px-5 space-y-5">
                     <StatusBar
                         style="light"
@@ -132,29 +129,29 @@ export default function SignUpScreen({ navigation }) {
                                     field: { onChange, onBlur, value },
                                 }) => (
                                     <View className="relative justify-center">
-                                    <TextInput
-                                        value={value}
-                                        onBlur={onBlur}
-                                        onChangeText={onChange}
-                                        placeholderTextColor={"grey"}
-                                        className="text-white border-b border-gray-600 p-3 mb-3"
-                                        autoCapitalize="none"
-                                        keyboardType="default"
-                                        secureTextEntry={!showPassword}
-                                    />
-                                    <TouchableOpacity
-                                        onPress={togglePasswordVisibility}
-                                        className="absolute right-3"
-                                    >
-                                        <Icon
-                                            name="eye"
-                                            color={"grey"}
-                                            size={20}
+                                        <TextInput
+                                            value={value}
+                                            onBlur={onBlur}
+                                            onChangeText={onChange}
+                                            placeholderTextColor={"grey"}
+                                            className="text-white border-b border-gray-600 p-3 mb-3"
+                                            autoCapitalize="none"
+                                            keyboardType="default"
+                                            secureTextEntry={!showPassword}
+                                        />
+                                        <TouchableOpacity
+                                            onPress={togglePasswordVisibility}
+                                            className="absolute right-3"
                                         >
-                                            {showPassword ? false : true}
-                                        </Icon>
-                                    </TouchableOpacity>
-                                </View>
+                                            <Icon
+                                                name="eye"
+                                                color={"#4a5568"}
+                                                size={20}
+                                            >
+                                                {showPassword ? false : true}
+                                            </Icon>
+                                        </TouchableOpacity>
+                                    </View>
                                 )}
                             />
                         </View>
@@ -163,7 +160,7 @@ export default function SignUpScreen({ navigation }) {
                             {/* Custom sign up button */}
                             <CustomButton
                                 title={"Sign Up"}
-                                BtnColors={["#c77dff","#7b2cbf"]}
+                                BtnColors={["#c77dff", "#7b2cbf"]}
                                 handleClick={() =>
                                     navigation.navigate("AddUps")
                                 }
