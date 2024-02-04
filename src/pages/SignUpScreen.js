@@ -13,9 +13,10 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SignInFormSchema } from "../utils/formValidations";
+import { SignUpFormSchema } from "../utils/formValidations";
 import CustomButton from "../components/CustomButton/CustomButton";
-import Icon  from "react-native-vector-icons/FontAwesome5";
+import Icon from "react-native-vector-icons/FontAwesome5";
+import useSignUp from "../hooks/useSignUp";
 
 /**
  * SignUpScreen component for user sign up
@@ -23,29 +24,25 @@ import Icon  from "react-native-vector-icons/FontAwesome5";
  */
 export default function SignUpScreen({ navigation }) {
     // Use react-hook-form for form management
-    const { control, handleSubmit, formState } = useForm({
-        defaultValues: {
-            username: "",
-            email: "",
-            password: "",
-        },
-        resolver: zodResolver(SignInFormSchema),
-    });
+    const [control,
+        showPassword,
+        togglePasswordVisibility,
+        handleSubmit,
+        errors,
+        isSubmitting,
+        submittedData,
+        onSubmit] = useSignUp();
 
-    const [showPassword, setShowPassword] = useState(false);
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    }
 
     // Handle back button to exit app
-    const handleExit = () => {
-        ToastAndroid.show("Press back again to exit", ToastAndroid.SHORT);
+    // const handleExit = () => {
+    //     ToastAndroid.show("Press back again to exit", ToastAndroid.SHORT);
 
-        BackHandler.addEventListener("hardwareBackPress", () => {
-            BackHandler.exitApp();
-            return true;
-        });
-    };
+    //     BackHandler.addEventListener("hardwareBackPress", () => {
+    //         BackHandler.exitApp();
+    //         return true;
+    //     });
+    // };
 
     return (
         <KeyboardAvoidingView
@@ -96,6 +93,8 @@ export default function SignUpScreen({ navigation }) {
                                     />
                                 )}
                             />
+                            {errors.username && 
+                            <Text className="text-red-400 font-light text-[12px] mt-2">{errors?.username?.message}</Text>}
                         </View>
 
                         <View className="mb-10">
@@ -119,6 +118,8 @@ export default function SignUpScreen({ navigation }) {
                                     />
                                 )}
                             />
+                            {errors.email &&
+                                <Text className="text-red-400 font-light text-[12px] mt-2">{errors?.email?.message}</Text>}
                         </View>
 
                         <View className="mb-5">
@@ -132,29 +133,31 @@ export default function SignUpScreen({ navigation }) {
                                     field: { onChange, onBlur, value },
                                 }) => (
                                     <View className="relative justify-center">
-                                    <TextInput
-                                        value={value}
-                                        onBlur={onBlur}
-                                        onChangeText={onChange}
-                                        placeholderTextColor={"grey"}
-                                        className="text-white border-b border-gray-600 p-3 mb-3"
-                                        autoCapitalize="none"
-                                        keyboardType="default"
-                                        secureTextEntry={!showPassword}
-                                    />
-                                    <TouchableOpacity
-                                        onPress={togglePasswordVisibility}
-                                        className="absolute right-3"
-                                    >
-                                        <Icon
-                                            name="eye"
-                                            color={"grey"}
-                                            size={20}
+                                        <TextInput
+                                            value={value}
+                                            onBlur={onBlur}
+                                            onChangeText={onChange}
+                                            placeholderTextColor={"grey"}
+                                            className="text-white border-b border-gray-600 p-3 mb-3"
+                                            autoCapitalize="none"
+                                            keyboardType="default"
+                                            secureTextEntry={!showPassword}
+                                        />
+                                        <TouchableOpacity
+                                            onPress={togglePasswordVisibility}
+                                            className="absolute right-3"
                                         >
-                                            {showPassword ? false : true}
-                                        </Icon>
-                                    </TouchableOpacity>
-                                </View>
+                                            <Icon
+                                                name="eye"
+                                                color={"grey"}
+                                                size={20}
+                                            >
+                                                {showPassword ? false : true}
+                                            </Icon>
+                                        </TouchableOpacity>
+                                        {errors.password &&
+                                            <Text className="text-red-400 font-light text-[12px]">{errors?.password?.message}</Text>}
+                                    </View>
                                 )}
                             />
                         </View>
@@ -163,10 +166,8 @@ export default function SignUpScreen({ navigation }) {
                             {/* Custom sign up button */}
                             <CustomButton
                                 title={"Sign Up"}
-                                BtnColors={["#c77dff","#7b2cbf"]}
-                                handleClick={() =>
-                                    navigation.navigate("AddUps")
-                                }
+                                BtnColors={["#c77dff", "#7b2cbf"]}
+                                handleClick={handleSubmit(onSubmit)}
                             />
 
                             <View className="flex-row justify-center mt-5">

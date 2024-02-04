@@ -1,8 +1,13 @@
 import * as z from 'zod';
 
+export const SignUpFormSchema = z.object({
+    username: z.string('Username must have than 6 characters').min(6),
+    email: z.string().email("Email is Required!"),
+    password: z.string()
+        .min(6, 'Password must have than 6 characters'),
+})
 export const SignInFormSchema = z.object({
-    username: z.string().min(6),
-    email: z.string().email(),
+    email: z.string().email("Email is Required!"),
     password: z.string()
         .min(6, 'Password must have than 6 characters'),
 })
