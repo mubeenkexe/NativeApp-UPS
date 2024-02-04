@@ -26,7 +26,7 @@ const EnterOtp = ({ navigation }) => {
                 <OtpInput />
                 <CustomButton
                     title={"Submit"}
-                    handleClick={() => {}}
+                    handleClick={() => navigation.navigate("ResetPass")}
                     iconName={"check"}
                     BtnColors={["#6a994e", "#a7c957"]}
                 />
