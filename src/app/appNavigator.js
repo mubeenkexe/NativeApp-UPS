@@ -15,14 +15,16 @@ const AppNavigator = () => {
                     headerShown: false,
                 }}
             >
-                {Object.entries(routes).map(([name, { screen, navigationOption }]) => (
-                    <Stack.Screen
-                        key={name}
-                        name={name}
-                        component={screen}
-                        options={navigationOption}
-                    />
-                ))}
+                {Object.entries(routes).map(
+                    ([name, { screen, navigationOption }]) => (
+                        <Stack.Screen
+                            key={name}
+                            name={name}
+                            component={screen}
+                            options={navigationOption}
+                        />
+                    )
+                )}
             </Stack.Navigator>
         </NavigationContainer>
     );

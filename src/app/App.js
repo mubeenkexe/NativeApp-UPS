@@ -4,7 +4,11 @@ import AppNavigator from "./appNavigator";
 import { registerRootComponent } from "expo";
 
 const App = () => {
-  return <AuthProvider><AppNavigator /></AuthProvider>;
+    return (
+        <AuthProvider>
+            <AppNavigator />
+        </AuthProvider>
+    );
 };
 
 export default registerRootComponent(App);
