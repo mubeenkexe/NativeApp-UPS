@@ -47,6 +47,6 @@ export const routes = {
         screen: ResetPassScreen,
         navigationOption: {
             title: "ResetPass",
-        }
-    }
+        },
+    },
 };
