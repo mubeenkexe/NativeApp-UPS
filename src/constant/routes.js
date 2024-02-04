@@ -1,4 +1,5 @@
 import AddUpsScreen from "../pages/AddUpsScreen";
+import EnterOtp from "../pages/EnterOtpScreen";
 import ForgotPassScreen from "../pages/ForgotPassScreen";
 import HomeScreen from "../pages/HomeScreen";
 import SignInScreen from "../pages/SignInScreen";
@@ -35,4 +36,10 @@ export const routes = {
             title: "AddUps",
         },
     },
+    EnterOtp: {
+        screen: EnterOtp,
+        navigationOption: {
+            title: "EnterOtp",
+        },
+    }
 };
