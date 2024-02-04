@@ -37,6 +37,7 @@ export default function AddUpsScreen({ navigation }) {
                     className="text-white border-b border-gray-600 p-3 mb-5"
                     placeholder="Enter Serial Number"
                     placeholderTextColor={"grey"}
+                    keyboardType="numeric"
                 />
 
                 <TouchableOpacity>
