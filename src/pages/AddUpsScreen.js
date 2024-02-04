@@ -20,7 +20,7 @@ export default function AddUpsScreen({ navigation }) {
             <GoBackButton handleClick={() => navigation.goBack()} />
 
             {/* title */}
-            <View className="mb-5 pt-5">
+            <View className="mb-5">
                 <Text className="text-white font-bold text-5xl">Add</Text>
                 <Text className="text-white font-bold text-5xl">Your UPS.</Text>
             </View>
