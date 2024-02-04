@@ -2,7 +2,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { SignInFormSchema } from "../utils/formValidations";
-import { BaseUrl } from "../utils/constant";
 import { useAuth } from "./authContext";
 
 
