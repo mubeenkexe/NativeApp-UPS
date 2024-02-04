@@ -19,20 +19,18 @@ import useSignIn from "../hooks/useSignIn";
  * @param {object} navigation - navigation object for routing
  */
 export default function SignInScreen({ navigation }) {
-
     // Use react-hook-form for form management
-    const 
-    [control,
-     showPassword,
-     togglePasswordVisibility,
-     handleSubmit,
-     errors,
-     isSubmitting,
-     submittedData,
-     onSubmit] = useSignIn();
-    
+    const [
+        control,
+        showPassword,
+        togglePasswordVisibility,
+        handleSubmit,
+        errors,
+        isSubmitting,
+        submittedData,
+        onSubmit,
+    ] = useSignIn();
 
-    
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -100,8 +98,11 @@ export default function SignInScreen({ navigation }) {
                                     />
                                 )}
                             />
-                            {errors.email && 
-                            <Text className="text-red-400 font-light text-[12px] mt-2">{errors?.email?.message}</Text>}
+                            {errors.email && (
+                                <Text className="text-red-400 font-light text-[12px] mt-2">
+                                    {errors?.email?.message}
+                                </Text>
+                            )}
                         </View>
 
                         <View className="mb-5">
@@ -120,7 +121,7 @@ export default function SignInScreen({ navigation }) {
                                             onBlur={onBlur}
                                             onChangeText={onChange}
                                             placeholderTextColor={"grey"}
-                                            className="text-white border-b border-gray-600 p-3 mb-3"
+                                            className="text-white border-b border-gray-600 p-3"
                                             autoCapitalize="none"
                                             keyboardType="default"
                                             secureTextEntry={!showPassword}
@@ -140,14 +141,17 @@ export default function SignInScreen({ navigation }) {
                                     </View>
                                 )}
                             />
-                             {errors.password && 
-                                        <Text className="text-red-400 font-light text-[12px] mt-2">{errors?.password?.message}</Text>}
+                            {errors.password && (
+                                <Text className="text-red-400 font-light text-[12px] mt-2">
+                                    {errors?.password?.message}
+                                </Text>
+                            )}
                             <TouchableOpacity
                                 onPress={() =>
                                     navigation.navigate("ForgotPass")
                                 }
                             >
-                                <Text className="text-sky-600 font-bold">
+                                <Text className="text-sky-600 font-bold mt-3">
                                     Forgot Password?
                                 </Text>
                             </TouchableOpacity>
