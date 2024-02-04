@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     View,
     Text,
@@ -15,6 +15,7 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignInFormSchema } from "../utils/formValidations";
 import CustomButton from "../components/CustomButton/CustomButton";
+import Icon  from "react-native-vector-icons/FontAwesome5";
 
 /**
  * SignUpScreen component for user sign up
@@ -30,6 +31,11 @@ export default function SignUpScreen({ navigation }) {
         },
         resolver: zodResolver(SignInFormSchema),
     });
+
+    const [showPassword, setShowPassword] = useState(false);
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    }
 
     // Handle back button to exit app
     const handleExit = () => {
@@ -125,6 +131,7 @@ export default function SignUpScreen({ navigation }) {
                                 render={({
                                     field: { onChange, onBlur, value },
                                 }) => (
+                                    <View className="relative justify-center">
                                     <TextInput
                                         value={value}
                                         onBlur={onBlur}
@@ -133,8 +140,21 @@ export default function SignUpScreen({ navigation }) {
                                         className="text-white border-b border-gray-600 p-3 mb-3"
                                         autoCapitalize="none"
                                         keyboardType="default"
-                                        secureTextEntry
+                                        secureTextEntry={!showPassword}
                                     />
+                                    <TouchableOpacity
+                                        onPress={togglePasswordVisibility}
+                                        className="absolute right-3"
+                                    >
+                                        <Icon
+                                            name="eye"
+                                            color={"grey"}
+                                            size={20}
+                                        >
+                                            {showPassword ? false : true}
+                                        </Icon>
+                                    </TouchableOpacity>
+                                </View>
                                 )}
                             />
                         </View>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     View,
     Text,
@@ -9,12 +9,11 @@ import {
     Platform,
 } from "react-native";
 import { Controller, useForm } from "react-hook-form";
-import Icon from "react-native-vector-icons/FontAwesome";
-import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignInFormSchema } from "../utils/formValidations";
 import CustomButton from "../components/CustomButton/CustomButton";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 /**
  * SignUpScreen component for user sign up
@@ -30,6 +29,13 @@ export default function SignInScreen({ navigation }) {
         },
         resolver: zodResolver(SignInFormSchema),
     });
+
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     return (
         <KeyboardAvoidingView
@@ -113,16 +119,30 @@ export default function SignInScreen({ navigation }) {
                                 render={({
                                     field: { onChange, onBlur, value },
                                 }) => (
-                                    <TextInput
-                                        value={value}
-                                        onBlur={onBlur}
-                                        onChangeText={onChange}
-                                        placeholderTextColor={"grey"}
-                                        className="text-white border-b border-gray-600 p-3 mb-3"
-                                        autoCapitalize="none"
-                                        keyboardType="default"
-                                        secureTextEntry
-                                    />
+                                    <View className="relative justify-center">
+                                        <TextInput
+                                            value={value}
+                                            onBlur={onBlur}
+                                            onChangeText={onChange}
+                                            placeholderTextColor={"grey"}
+                                            className="text-white border-b border-gray-600 p-3 mb-3"
+                                            autoCapitalize="none"
+                                            keyboardType="default"
+                                            secureTextEntry={!showPassword}
+                                        />
+                                        <TouchableOpacity
+                                            onPress={togglePasswordVisibility}
+                                            className="absolute right-3"
+                                        >
+                                            <Icon
+                                                name="eye"
+                                                color={"grey"}
+                                                size={20}
+                                            >
+                                                {showPassword ? false : true}
+                                            </Icon>
+                                        </TouchableOpacity>
+                                    </View>
                                 )}
                             />
                             <TouchableOpacity
