@@ -10,9 +10,9 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Controller } from "react-hook-form";
-import CustomButton from "../components/CustomButton/CustomButton";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import useSignUp from "../hooks/useSignUp";
+import CustomButton from "../components/CustomButton/page";
 
 export default function SignUpScreen({ navigation }) {
     const [

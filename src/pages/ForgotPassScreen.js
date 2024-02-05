@@ -2,7 +2,6 @@ import React from "react";
 import {
     View,
     Text,
-    TouchableOpacity,
     ScrollView,
     KeyboardAvoidingView,
     Platform,
@@ -10,8 +9,8 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useForm } from "react-hook-form";
-import GoBackButton from "../components/GoBackButton/GoBackButton";
-import CustomButton from "../components/CustomButton/CustomButton";
+import GoBackButton from "../components/GoBackButton/page";
+import CustomButton from "../components/CustomButton/page";
 
 export default function ForgotPassScreen({ navigation }) {
     const { control } = useForm({

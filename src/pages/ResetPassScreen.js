@@ -1,10 +1,10 @@
 import { Text, TextInput, View } from "react-native";
-import GoBackButton from "../components/GoBackButton/GoBackButton";
 import { StatusBar } from "expo-status-bar";
-import CustomButton from "../components/CustomButton/CustomButton";
 import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import GoBackButton from "../components/GoBackButton/page";
+import CustomButton from "../components/CustomButton/page";
 
 const ResetPassScreen = ({ navigation }) => {
     const [password, setPassword] = useState("");

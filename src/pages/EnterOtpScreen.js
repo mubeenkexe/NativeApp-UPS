@@ -1,8 +1,8 @@
 import { Text, TouchableOpacity } from "react-native";
 import { View } from "react-native";
-import GoBackButton from "../components/GoBackButton/GoBackButton";
-import OtpInput from "../components/OtpInput/OtpInput";
-import CustomButton from "../components/CustomButton/CustomButton";
+import GoBackButton from "../components/GoBackButton/page";
+import OtpInput from "../components/OtpInput/page";
+import CustomButton from "../components/CustomButton/page";
 
 const EnterOtp = ({ navigation }) => {
     return (

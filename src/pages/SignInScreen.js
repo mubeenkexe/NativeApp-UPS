@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
     View,
     Text,
@@ -10,9 +10,9 @@ import {
 } from "react-native";
 import { Controller } from "react-hook-form";
 import { StatusBar } from "expo-status-bar";
-import CustomButton from "../components/CustomButton/CustomButton";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import useSignIn from "../hooks/useSignIn";
+import CustomButton from "../components/CustomButton/page";
 
 /**
  * SignUpScreen component for user sign up
@@ -163,6 +163,7 @@ export default function SignInScreen({ navigation }) {
                                 title={"Login"}
                                 BtnColors={["#c77dff", "#7b2cbf"]}
                                 handleClick={handleSubmit(onSubmit)}
+                                isDisbaled={true}
                             />
 
                             <View className="flex-row justify-center mt-5">

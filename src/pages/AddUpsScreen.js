@@ -1,8 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
-import GoBackButton from "../components/GoBackButton/GoBackButton";
+import GoBackButton from "../components/GoBackButton/page";
 
 export default function AddUpsScreen({ navigation }) {
     const [serialNumber, setSerialNumber] = useState("");
