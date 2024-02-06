@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import { View, Text, TextInput } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome5";
-import NavigationTab from "../components/NavigationBar.jsx/page";
+import { View, Text } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome6";
+import AddUpsButton from "../components/AddUpsButton/page";
 
 const HomeScreen = ({ navigation }) => {
     const User = { name: "John Doe", email: "qoJLh@example.com" };
@@ -17,15 +17,24 @@ const HomeScreen = ({ navigation }) => {
                 />
 
                 {/* Title */}
-                <View className="mb-5">
-                    <Text className="text-white font-bold text-5xl">Hello</Text>
-                    <Text className="text-white font-bold text-5xl">
-                        {User.name}.
-                    </Text>
+                <View className="flex-row justify-between">
+                    <View>
+                        <Text className="text-white font-bold text-5xl">
+                            Hello
+                        </Text>
+                        <Text className="text-white font-bold text-5xl">
+                            {User.name}.
+                        </Text>
+                    </View>
+
+                    {/* Profile Icon */}
+                    <View className="w-16 h-16 self-center rounded-full items-center justify-center bg-slate-900">
+                        <Icon name="user" color="#c77dff" size={30} />
+                    </View>
                 </View>
 
                 {/* Welcome Message */}
-                <View className="w-full h-28 border border-gray-600 rounded-3xl flex-row items-center">
+                <View className="w-full h-28 border rounded-3xl flex-row items-center bg-slate-900">
                     <View className="w-2/4 p-5">
                         <Text className="text-white font-bold text-2xl flex-col">
                             Welcome!
@@ -37,20 +46,18 @@ const HomeScreen = ({ navigation }) => {
                     </View>
 
                     <View className="w-2/4 items-center">
-                        <Icon name="bolt" color="#6a994e" size={70} />
+                        <Icon name="bolt" color="#c77dff" size={70} />
                     </View>
                 </View>
 
                 {/* Map UPS */}
-                <View className="w-full h-auto border border-gray-600">
-                    <Text className="text-white font-bold text-2xl text-center">
-                        Your Devices
-                    </Text>
+                <View className="w-full h-auto">
+                
                 </View>
 
                 <View className="absolute bottom-0 w-full self-center">
-                    {/* Navigation Tab */}
-                    <NavigationTab />
+                    {/* Add UPS Button */}
+                    <AddUpsButton />
                 </View>
             </View>
         </>
