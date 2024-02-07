@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome6";
 import AddUpsButton from "../components/AddUpsButton/page";
+import DropDown from "../components/DropDown/page";
 
 const HomeScreen = ({ navigation }) => {
     const User = { name: "John Doe", email: "qoJLh@example.com" };
@@ -52,7 +53,7 @@ const HomeScreen = ({ navigation }) => {
 
                 {/* Map UPS */}
                 <View className="w-full h-auto">
-                
+                    <DropDown />
                 </View>
 
                 <View className="absolute bottom-0 w-full self-center">
