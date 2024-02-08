@@ -2,6 +2,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import GoBackButton from "../components/GoBackButton/page";
+import { StatusBar } from "expo-status-bar";
 
 export default function AddUpsScreen({ navigation }) {
     const [serialNumber, setSerialNumber] = useState("");
@@ -15,6 +16,10 @@ export default function AddUpsScreen({ navigation }) {
 
     return (
         <View className="bg-black h-full w-full px-5 space-y-5">
+
+            {/* Status Bar */}
+            <StatusBar style="light" backgroundColor="black" translucent={false} />
+            
             {/* GoBack Icon */}
             <GoBackButton handleClick={() => navigation.goBack()} />
 
@@ -55,7 +60,7 @@ export default function AddUpsScreen({ navigation }) {
 
                 <View className="flex-row justify-center mt-5">
                     <Text className="text-gray-600">Don't have a UPS? </Text>
-                    <TouchableOpacity onPress={() => Alert.alert("Khareed le aik UPS Gareeb!")}>
+                    <TouchableOpacity onPress={() => Alert.alert("Functionality Coming Soon.")}>
                         <Text className="text-sky-600 font-bold">Click Here!</Text>
                     </TouchableOpacity>
                 </View>
