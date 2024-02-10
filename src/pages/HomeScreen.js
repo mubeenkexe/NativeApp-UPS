@@ -2,10 +2,15 @@ import { StatusBar } from "expo-status-bar";
 import { View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome6";
 import AddUpsButton from "../components/AddUpsButton/page";
-import DropDown from "../components/DropDown/page";
+import CustomDropDown from "../components/CustomDropDown/page";
+import upsData from "../constant/upsData";
 
 const HomeScreen = ({ navigation }) => {
     const User = { name: "John Doe", email: "qoJLh@example.com" };
+    const upsOptions = upsData.map((ups) => ({
+        label: ups.upsName,
+        value: ups.upsName,
+    }))
 
     return (
         <>
@@ -53,7 +58,7 @@ const HomeScreen = ({ navigation }) => {
 
                 {/* Map UPS */}
                 <View className="w-full h-auto">
-                    <DropDown />
+                    <CustomDropDown options={upsOptions} onSelect={(options) => console.log(options)}/>
                 </View>
 
                 <View className="absolute bottom-0 w-full self-center">
