@@ -8,7 +8,7 @@ const AppNavigator = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="SignIn"
+                initialRouteName="Home"
                 screenOptions={{
                     animationEnabled: false,
                     gestureEnabled: false,
