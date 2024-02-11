@@ -3,14 +3,21 @@ import { View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome6";
 import AddUpsButton from "../components/AddUpsButton/page";
 import CustomDropDown from "../components/CustomDropDown/page";
-import upsData from "../constant/upsData";
+import { upsData } from "../constant/upsData";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
     const User = { name: "John Doe", email: "qoJLh@example.com" };
-    const upsOptions = upsData.map((ups) => ({
-        label: ups.upsName,
-        value: ups.upsName,
-    }))
+
+    console.log(upsData);
+
+    const upsOptions =
+        upsData &&
+        upsData.map((data) => ({
+            label: data.upsName,
+            value: data.upsName,
+        }));
+
+    console.log(upsOptions);
 
     return (
         <>
@@ -57,8 +64,11 @@ const HomeScreen = ({ navigation }) => {
                 </View>
 
                 {/* Map UPS */}
-                <View className="w-full h-auto">
-                    <CustomDropDown options={upsOptions} onSelect={(options) => console.log(options)}/>
+                <View className="w-full h-auto z-10">
+                    <CustomDropDown
+                        options={upsOptions}
+                        onSelect={(options) => console.log(options)}
+                    />
                 </View>
 
                 <View className="absolute bottom-0 w-full self-center">
