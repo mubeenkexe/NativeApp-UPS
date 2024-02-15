@@ -163,7 +163,7 @@ export default function SignInScreen({ navigation }) {
                                 title={"Login"}
                                 BtnColors={["#c77dff", "#7b2cbf"]}
                                 handleClick={handleSubmit(onSubmit)}
-                                isDisbaled={true}
+                                isDisbaled={false}
                             />
 
                             <View className="flex-row justify-center mt-5">
