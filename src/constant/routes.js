@@ -2,7 +2,6 @@ import AddUpsScreen from "../pages/AddUpsScreen";
 import EnterOtp from "../pages/EnterOtpScreen";
 import ForgotPassScreen from "../pages/ForgotPassScreen";
 import HomeScreen from "../pages/HomeScreen";
-import NewSignInScreen from "../pages/NewSignInScreen";
 import ResetPassScreen from "../pages/ResetPassScreen";
 import SignInScreen from "../pages/SignInScreen";
 import SignUpScreen from "../pages/SignUpScreen";
@@ -50,10 +49,4 @@ export const routes = {
             title: "ResetPass",
         },
     },
-    NewSignIn: {
-        screen: NewSignInScreen,
-        navigationOption: {
-            title: "NewSignIn"
-        }
-    }
 };
