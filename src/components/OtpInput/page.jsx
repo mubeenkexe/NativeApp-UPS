@@ -1,12 +1,17 @@
 import { TextInput, View } from "react-native";
-import { useState } from "react";
+import { useRef, useState } from "react";
 const OtpInput = () => {
     const [otp, setOtp] = useState(['', '', '', '']);
+    const containerRef = useRef(null);
 
     const handleOtpChange = (index, value) => {
         const newOtp = [...otp];
         newOtp[index] = value;
         setOtp(newOtp);
+
+        if (value !== "" && index < otp.length - 1) {
+          containerRef.current.children[index + 1].focus();
+        }
     }
 
   return (
