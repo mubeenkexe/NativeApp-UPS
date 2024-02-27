@@ -1,5 +1,6 @@
 import { AuthProvider } from "../hooks/authContext";
 import AppNavigator from "./appNavigator";
+
 // import AuthProvider from "../hooks/AuthProvider";
 import { registerRootComponent } from "expo";
 
